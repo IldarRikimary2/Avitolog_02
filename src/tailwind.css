@@ -1,0 +1,1275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #2DE184;
+  --background-color: #233532;
+  --text-color: #1E1F2A;
+}
+
+.oswald {
+  font-family: 'Oswald', sans-serif;
+}
+
+.background-image {
+  background-image: url('./background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+html {
+  font-size: 12px;
+}
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  background: var(--text-color);
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  padding: 4.5rem;
+  border-radius: 0.5rem;
+}
+
+.modal-container-menu {
+  position: fixed;
+  top: 16%;
+  left: 0%;
+  z-index: 100;
+  background: var(--text-color);
+  width: 100%;
+  height: 100vh;
+  padding: 4.5rem;
+  border-radius: 0.5rem;
+}
+
+.modal-personal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--text-color);
+  height: 600px;
+  overflow: hidden;
+  max-width: 360px;
+  padding: 7rem 3rem;
+  border-radius: 0.5rem;
+  overflow-y: auto;
+}
+
+.modal-container-test {
+  @apply w-full max-w-[1000px] 2xl:max-w-[1200px];
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  background: var(--text-color);
+  height: auto;
+  padding: 4.5rem;
+  border-radius: 0.5rem;
+}
+
+.back_test {
+  background-image: url(./image//back_test.png);
+  background-size: cover; /* или contain, в зависимости от ваших предпочтений */
+  background-position: center center; /* или другие значения в зависимости от вашего дизайна */
+  background-repeat: no-repeat;
+}
+
+
+/* Стили для полосы прокрутки в Chrome и Safari */
+.modal-personal::-webkit-scrollbar {
+  width: 12px;
+  /* Ширина полосы прокрутки */
+}
+
+/* Стили для барахла прокрутки в Chrome и Safari */
+.modal-personal::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* Цвет полосы прокрутки */
+}
+
+/* Стили для фона прокрутки в Chrome и Safari */
+.modal-personal::-webkit-scrollbar-track {
+  background-color: transparent;
+  /* Прозрачный фон */
+}
+
+/* Затемнение */
+.overlay-dark {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Здесь можно настроить цвет и прозрачность затемнения */
+  z-index: 100;
+  /* Убедитесь, что z-index затемнения меньше z-index модального окна */
+}
+
+.p-two {
+  color: var(--, #FFF);
+  text-align: center;
+  font-family: Oswald;
+  font-size: 4.5rem;
+  font-weight: 500;
+}
+
+.p-get {
+  color: var(--White, #FFF);
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Oswald;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+
+.clamp-size-h1 {
+  font-size: clamp(20px, 4.5vw, 60px);
+}
+
+.clamp-size-h2-garan {
+  font-size: clamp(20px, 4.5vw, 66px);
+}
+
+.clamp-size-h2 {
+  font-size: clamp(27px, 6.4vw, 120px);
+}
+
+.clamp-size-three-day {
+  font-size: clamp(27px, 1.4vw, 36px);
+}
+
+.clamp-size-h2-business {
+  font-size: clamp(34px, 5.4vw, 120px);
+}
+
+.clamp-size-h2-garant {
+  font-size: clamp(18px, 4.4vw, 38px);
+}
+
+/* .modal-container {
+  position: relative;
+  z-index: 1000;
+  background: var(--text-color);
+  width: 50rem;
+  height: 62rem;
+  padding: 4.5rem;
+  border-radius: 0.5rem;
+} */
+
+.menu-container {
+  position: relative;
+  z-index: 1000;
+  background: var(--text-color);
+  width: 100%;
+  height: 100%;
+  padding: 4.5rem;
+  border-radius: 0.5rem;
+}
+
+.close-icon {
+  border: 1px solid var(--Gray, #909090);
+  position: absolute;
+  top: 3rem;
+  right: 4rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cross {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Добавьте стили для кнопки закрытия модального окна, если необходимо */
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  /* Добавьте стили по вашему усмотрению */
+}
+
+.shadow {
+  @apply left-[30%];
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  top: 40px;
+  filter: blur(3rem);
+  background: var(--primary-color);
+  width: 5rem;
+  height: 5rem;
+  box-shadow: 0 0 80px 15px var(--primary-color);
+}
+
+/* MovingText.css */
+.moving-text-container {
+  width: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  /* Включите position: relative; */
+}
+
+.fixedHeader {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  position: fixed;
+  transition: 1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+
+.h3-blog {
+  display: block;
+  text-decoration: underline;
+  width: 22rem;
+  cursor: pointer;
+  color: var(--White, #FFF);
+  font-family: Oswald;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.p-text-blog {
+  margin-top: 5px;
+  width: 22rem;
+  color: var(--White, #FFF);
+  font-family: Oswald;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.button-filter {
+  @apply w-auto h-[4.5rem] border bg-transparent rounded-full text-filter hover:bg-[var(--primary-color)] hover:border-[var(--primary-color)]
+}
+
+
+.text-filter {
+  @apply text-[1.4rem] xl:text-[1.7rem] py-[1rem] px-[2rem] xl:px-[4rem];
+  color: var(--White, #FFF);
+  text-align: center;
+  font-family: Oswald;
+  font-weight: 700;
+  margin-top: 10px;
+  transition: .5s ease;
+}
+
+.modal-menu-li,
+.modal-menu-about {
+  @apply text-[1.8rem] sm:text-[2rem];
+  font-family: Oswald;
+  font-weight: 300;
+  line-height: 30px;
+  letter-spacing: 0px;
+}
+
+.overlay-menu {
+  @apply top-[20px] md:top-[50px] lg:px-[8rem] xl:px-[10rem] 2xl:px-[15rem] flex items-center;
+  position: fixed;
+  border-radius: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background: var(--text-color);
+  opacity: 0.99;
+  backdrop-filter: blur(15px);
+  z-index: 90;
+}
+
+.h1-about-company {
+  @apply text-[2.5rem] sm:text-[3.5rem] 2xl:text-[4.5rem];
+  color: var(--White, #FFF);
+  font-family: Oswald;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.h2-about-company {
+  @apply text-[1.6rem] sm:text-[2rem] 2xl:text-[3rem];
+  color: var(--primary-color);
+  font-family: Oswald;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.h3-about-company {
+  @apply text-[1.6rem] sm:text-[1.8rem];
+  color: var(--Accent, #2DE184);
+  font-family: Oswald;
+  font-weight: 600;
+}
+
+.p-about-company,
+.p-about-company-plus {
+  color: var(--White, #FFF);
+  font-family: Oswald;
+  font-weight: 400;
+}
+
+.p-about-company {
+  @apply text-[1.2rem] sm:text-[1.5rem] 2xl:text-[2rem];
+}
+
+.p-about-company-plus {
+  @apply text-[1rem] 2xl:text-[1.3rem];
+}
+
+.modal-menu-li {
+  color: white;
+}
+
+.modal-menu-about {
+  color: gray;
+}
+
+.moving-text {
+  white-space: nowrap;
+  animation: moveLeft 50s linear infinite;
+  /* Используйте свои значения */
+  width: auto;
+  /* Удалите position: absolute; и добавьте width: auto; */
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+/* Базовые стили кнопки */
+.custom-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.button-cases {
+  display: block;
+  border: 2px solid;
+  border-radius: 4rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.19);
+  max-width: 48rem;
+  height: 30px;
+  padding: 0.2rem 1.5rem;
+  margin-bottom: 0.8rem;
+  background-color: transparent;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  color: white;
+  font-family: Inter;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: -0.01rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.button-cases:hover,
+.button-cases.saved {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+@layer utilities {
+  @layer utilities {
+
+    .heading-text {
+      @apply uppercase oswald text-center text-[1.7rem] sm:text-[2.1rem] lg:text-[3.5rem] text-white font-semibold
+    }
+
+    .btn-calc {
+      @apply lg:h-5 lg:pt-8 lg:pb-14 rounded-full border border-[var(--primary-color)] text-black text-center bg-[var(--primary-color)] font-inter font-semibold leading-7 w-[200px] md:w-[270px] 2xl:w-[370px] h-[47px] text-[1.1rem] md:text-[1.5rem] lg:text-[17px] 2xl:text-[1.8rem] pb-[9px] pt-[9px];
+      transition: background-color 0.3s ease-in, border-color 0.3s ease-in, color 0.3s ease-in;
+    }
+
+    .btn-calc-test {
+      @apply h-[40px] sm:h-[60px] lg:h-[70px] text-white sm:pt-6 lg:pt-8 lg:pb-14 rounded-full border border-[var(--primary-color)] text-center bg-[var(--primary-color)] font-inter font-semibold leading-7 w-[120px] md:w-[270px] 2xl:w-[370px] text-[1.1rem] md:text-[1.5rem] lg:text-[17px] 2xl:text-[1.8rem] pb-[9px] pt-[9px];
+      transition: background-color 0.3s ease-in, border-color 0.3s ease-in, color 0.3s ease-in;
+    }
+
+    .btn-calc:hover,
+    .btn-calc-test:hover {
+      border-color: white;
+      color: white;
+      background-color: transparent;
+    }
+
+    .btn-form {
+      @apply lg:w-[20rem] mt-10 mx-auto block lg:pt-7 lg:pb-7 lg:px-10 rounded-full text-white bg-[var(--background-color)] font-inter lg:text-[20px] font-semibold transition duration-150 ease-out leading-7 w-[246px] text-[1em] pb-[9px] pt-[9px] px-[48px];
+      transition: background-color 0.2s ease-in, border-color 0.2s ease-in, color 0.2s ease-in;
+    }
+
+    .btn-form:hover {
+      color: white;
+      background-color: var(--primary-color);
+    }
+
+    .p-coolback-phone {
+      @apply text-[1rem] md:text-[1.6rem];
+      color: var(--White, #FFF);
+      text-align: center;
+      font-family: Oswald;
+      font-weight: 400;
+    }
+
+
+
+    .shadow-md {
+      box-shadow: 0px 0px 20px rgb(255, 255, 255);
+    }
+
+    .shadow-md-dark {
+      box-shadow:
+        0px 0px 20px var(--primary-color),
+        inset 0px 0px 10px rgba(0, 0, 0, 0.5),
+        inset 0px 0px 20px var(--primary-color);
+    }
+
+    .gray {
+      color: var(--Gray, #909090);
+    }
+
+
+
+    .text-footer-button {
+      color: var(--Gray, #909090);
+      font-weight: 600;
+    }
+
+    .prevArrow:hover,
+    .nextArrow:hover {
+      background: var(--primary-color);
+      color: rgb(255, 255, 255);
+    }
+
+    .dot-point {
+      width: 10px;
+      height: 10px;
+      margin: 0px 5px;
+      background-color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .active-dot-point {
+      background-color: var(--primary-color);
+    }
+
+
+
+
+    /* Эффект матового стекла */
+    /* .wrapper {
+      height: auto;
+      width: auto;
+      background: inherit;
+      border-radius: 15px;
+      border: 1px solid rgba(43, 43, 43, 0.568);
+      position: absolute;
+      overflow: hidden;
+    }
+
+    .wrapper:before {
+      position: absolute;
+      content: '';
+      background: inherit;
+      height: auto;
+      width: auto;
+      left: -25px;
+      right: 0;
+      top: -25px;
+      bottom: 0;
+      box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
+      filter: blur(10px);
+      border-radius: 15px;
+    } */
+
+    .btn-blog {
+      @apply w-[270px] 2xl:w-[370px] h-5 pt-8 pb-14 rounded-full text-white text-center border border-white font-inter text-[18px] 2xl:text-[20px] transition duration-150 ease-out font-semibold leading-7;
+      transition: background-color 0.2s ease-in, border-color 0.2s ease-in, color 0.2s ease-in;
+    }
+
+    .btn-blog:hover {
+      color: var(--primary-color);
+      background-color: none;
+      border-color: var(--primary-color);
+    }
+
+    .p-menu-nav {
+      @apply text-[1.2rem] lg:text-[1.5rem] 2xl:text-[1.6rem] font-normal hover:text-[var(--primary-color)]
+    }
+
+    .p-step {
+      @apply text-black font-oswald text-[1.2rem] md:text-[1.5rem]
+    }
+
+    .p-result {
+      @apply text-[var(--primary-color)] font-oswald sm:text-[1rem] md:text-[1.25rem] font-[400] uppercase
+    }
+
+    .p-personal {
+      color: #FFF;
+      text-align: justify;
+      font-family: Oswald;
+      font-size: 1.2rem;
+    }
+
+    .text-p-can {
+      @apply w-[8rem] sm:w-[13rem] md:w-[22.1rem] text-[0.8rem] sm:text-[1.2rem] md:text-[1.4rem] lg:text-[1.7rem] xl:text-[1.6rem];
+      color: var(--White, #FFF);
+      font-family: Oswald;
+      font-weight: 400;
+    }
+
+
+    .p-text-result {
+      @apply text-black font-oswald pt-[1.25rem] text-[1.3rem] md:text-[1.5rem];
+    }
+
+    .p-text-white {
+      @apply text-[1.2rem] sm:text-[1.5rem] lg:text-[1.9rem] 2xl:text-[2.1rem];
+      font-family: Oswald;
+      font-weight: 200;
+    }
+
+    .input-test {
+      @apply md:text-[1.9rem] xl:text-[2.2rem];
+      width: 100%;
+      padding-left: 2rem;
+      background: rgb(147, 147, 147);
+      font-family: Oswald;
+      font-weight: 200;
+      color: black;
+    }
+    
+    .input-test::placeholder {
+      @apply text-[1.5rem] md:text-[1.7rem] xl:text-[2.2rem];
+      color: var(--Gray-2, #3a3a3a);
+    }
+
+    .rounded-circle {
+      @apply w-[20px] h-[20px] lg:w-[30px] lg:h-[30px];
+      margin: auto 0;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      background-color: #808080;
+    }
+
+    .rounded-circle-active {
+      background-color: var(--primary-color);
+    }
+
+    .div-test {
+      @apply col-span-1 h-[50px] md:h-[80px] m-[10px] flex text-white border border-gray-500 rounded-[5px] space-x-6 justify-start pl-0 sm:pl-[2rem] cursor-pointer;
+    }
+
+    .selected {
+      @apply border-[var(--primary-color)] text-[var(--primary-color)]; 
+    }
+
+    .div-test:hover {
+      @apply border-[var(--primary-color)] text-[var(--primary-color)];
+    }
+
+    .h3-steps {
+      @apply text-[var(--background-color)] oswald text-[1.5rem] md:text-[2.5rem] uppercase font-[700] py-[0.5rem] pt-0 md:py-[1.3rem];
+    }
+
+    button {
+      transition-duration: 0.5s;
+    }
+
+    span {
+      @apply text-[var(--primary-color)]
+    }
+
+    /* Results */
+
+
+    .icon-result {
+      @apply h-auto pt-[1rem] w-[8rem] md:w-[10rem] mx-auto
+    }
+
+    .white-line {
+      @apply w-24 md:w-48 h-[2px] mx-auto bg-white my-16
+    }
+
+    .text-result {
+      @apply pl-[1rem] max-w-[15rem] md:max-w-[19rem] xl:max-w-[21rem] h-24 sm:h-40 mx-auto my-5 text-white text-[1.2rem] lg:text-[1.5rem] 2xl:text-[1.8rem] font-normal leading-[2rem] lg:leading-[2.5rem]
+    }
+
+    /* Cases */
+
+    .p-blog-time {
+      color: var(--Accent, #2DE184);
+      text-align: center;
+      font-family: Oswald;
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+
+    .dot {
+      margin-top: 12px;
+      width: 0.5rem;
+      height: 0.6rem;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+    }
+
+    .dot_big {
+      margin: 20px 20px 0 20px;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid white;
+      background: var(--text-color);
+      border-radius: 50%;
+    }
+
+    .green-text-rate {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border-radius: 4px;
+      margin: 0 1px;
+      display: inline-block;
+    }
+
+
+    .bestseller-rate {
+      width: 16.2rem;
+      height: 3.1rem;
+      transform: rotate(37.815deg);
+      background: var(--primary-color);
+      position: absolute;
+      bottom: 2rem;
+      left: -3rem;
+    }
+
+    .p-bestseller-rate {
+      text-align: center;
+      color: var(--text-color);
+      font-family: Oswald;
+      font-size: 1.6rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .p-case {
+      color: var(--White, #FFF);
+      font-family: Inter;
+      font-size: 2.6125rem;
+      font-weight: 400;
+      line-height: 131.182%;
+      letter-spacing: -0.14367rem;
+      text-transform: uppercase;
+    }
+
+    /* Ваш обычный CSS файл */
+    .button-rate,
+    .button-rate-dark {
+      display: block;
+      margin: 2rem auto 4rem;
+      border-radius: 50px;
+      width: 23rem;
+      height: 5rem;
+      font-weight: 600;
+      font-size: 1.5rem;
+      padding: 1.4rem 5rem;
+      text-decoration: none;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+
+
+    .button-rate {
+      background-color: var(--text-color);
+      color: var(--primary-color);
+    }
+
+    .h3-link {
+      text-align: center;
+      color: var(--White, #FFF);
+      font-family: Oswald;
+      text-transform: uppercase;
+    }
+
+    .button-rate:hover {
+      color: var(--text-color);
+      background-color: var(--primary-color);
+    }
+
+    .button-rate-dark {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+    }
+
+    .button-rate-dark:hover {
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      background-color: var(--text-color);
+    }
+
+
+    /* Professionals */
+    .photo-prof {
+      @apply mt-[5rem] py-0 w-auto h-[13rem] md:h-[20rem] md:p-[2.4rem]
+    }
+
+    .text-prof {
+      @apply text-center mx-auto my-0 sm:my-5 text-white text-[1.4rem] sm:text-[1.3rem] 2xl:text-[1.5rem] font-extralight leading-8 md:leading-[2.5rem]
+    }
+
+    .green-prof {
+      @apply mx-auto px-[1.5rem] flex justify-center items-center sm:py-0 2xl:py-10 w-[16rem] h-[17rem] sm:w-[20rem] sm:h-[15rem] md:h-[20rem] 2xl:h-[22rem] md:w-[18rem] 2xl:w-[20rem] border border-[var(--primary-color)] absolute top-[4rem] lg:static;
+    }
+
+
+    .input-transform {
+      @apply uppercase bg-transparent border-b border-[var(--text-color)] text-[0.9rem] md:text-[1rem] font-bold pb-1 pt-8 w-full font-inter outline-none
+    }
+
+    .input-transform-test {
+      @apply uppercase bg-transparent border-b border-gray-300 text-black text-[0.9rem] md:text-[1rem] font-[300] py-1 pb-3 pt-8 w-full font-inter outline-none;
+    }
+
+    .input-transform-test::placeholder {
+      @apply text-gray-300;
+    }
+
+    .h2-blog-main {
+      @apply text-[3rem] 2xl:text-[4.5rem];
+      color: var(--White, #FFF);
+      font-family: Oswald;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .prevArrow,
+    .nextArrow,
+    .prevArrowNoHover .nextArrowNoHover {
+      @apply w-[40px] h-[40px] lg:w-[50px] lg:h-[50px];
+      margin: auto 10px;
+      display: block;
+      font-size: 20px;
+      padding: 1px 5px;
+      border: none;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .p-about-company-name,
+    .p-about-company-prof {
+      @apply text-[1.2rem] sm:text-[1.4rem] lg:text-[2rem] 2xl:text-[2.3rem];
+      color: #FFF;
+      font-family: Oswald;
+      font-weight: 200;
+    }
+
+    .p-about-company-name {
+      text-transform: uppercase;
+    }
+
+    .slide-black {
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+    }
+
+    .slide-black:hover {
+      filter: grayscale(0%);
+    }
+
+    .slider-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider {
+      /* Анимация прокрутки влево */
+      display: flex;
+      /* 30s */
+      animation: scroll 90s linear infinite; 
+    }
+
+    .slide {
+      flex: 0 0 300px;
+      /* ширина слайда  */
+      transition: transform 1s;
+      /* Анимация перемещения слайдов */
+    }
+
+    .image-blog {
+      @apply h-[150px] mt-[2rem] sm:mt-[4rem] sm:h-[270px] lg:h-[400px] 2xl:h-[600px];
+      width: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .image-blog-full {
+      @apply h-auto mt-[2rem] sm:mt-[4rem];
+      width: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 15px;
+    }
+
+    /* Анимация прокрутки слайдов */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+        /* Начальное положение (не сдвигаем) */
+      }
+
+      100% {
+        transform: translateX(-300%);
+        /* Конечное положение (сдвигаем на 100%) */
+      }
+    }
+
+    .h3-weCan {
+      @apply oswald font-semibold text-[1.2rem] sm:text-[2rem] md:text-[2.4rem] xl:text-[2.5rem] text-[var(--primary-color)] uppercase;
+    }
+
+    .p-blog-green {
+      @apply text-[1rem] sm:text-[1.3rem] lg:text-[1.6rem] 2xl:text-[1.9rem];
+      color: var(--primary-color);
+      font-family: Oswald;
+      font-weight: 700;
+    }
+
+    .p-test-green {
+      @apply text-[1.3rem] sm:text-[1.5rem] lg:text-[1.9rem] 2xl:text-[2rem];
+      color: var(--primary-color);
+      font-family: Oswald;
+      font-weight: 700;
+    }
+
+    .p-blog-text {
+      @apply mt-[1rem] sm:mt-[2rem] text-[1.1rem] sm:text-[1.4rem] lg:text-[1.6rem] 2xl:text-[2.2rem];
+      color: var(--White, #FFF);
+      text-align: justify;
+      font-family: Oswald;
+      font-weight: 400;
+    }
+
+    .p-blog-li {
+      @apply space-y-2 text-[1.1rem] sm:text-[1.4rem] lg:text-[1.6rem] 2xl:text-[2rem];
+      color: var(--White, #FFF);
+      text-align: justify;
+      font-family: Oswald;
+      font-weight: 400;
+    }
+
+    .h2-blog {
+      @apply mt-[1rem] max-w-[1000px] mx-auto sm:mt-[4rem] text-[1.6rem] sm:text-[1.9rem] md:text-[2rem] lg:text-[2.2rem] 2xl:text-[2.5rem];
+      color: white;
+      text-align: center;
+      font-family: Oswald;
+      font-weight: 400;
+    }
+
+    .h2-blog-big {
+      @apply my-[3rem] sm:my-[8rem] text-[1.9rem] sm:text-[2.5rem] md:text-[3.2rem] lg:text-[3.8rem] 2xl:text-[4.4rem];
+      color: white;
+      text-align: center;
+      font-family: Oswald;
+      font-weight: 600;
+    }
+
+    .button-test {
+      color: var(--Background, #1E1F2A);
+      font-family: Oswald;
+      font-size: 2.7rem;
+      font-weight: 500;
+
+    }
+
+    .h2-blog-green {
+      @apply mt-[1rem] sm:mt-[4rem] text-[1.6rem] sm:text-[2rem] md:text-[2.9rem] lg:text-[3rem] 2xl:text-[4rem];
+      color: var(--primary-color);
+      text-align: justify;
+      font-family: Oswald;
+      font-weight: 400;
+    }
+
+    .p-test-white {
+      @apply text-[1.3rem] sm:text-[1.4rem] lg:text-[2rem] 2xl:text-[2.3rem];
+      color: var(--White, #FFF);
+      font-family: Oswald;
+      font-weight: 300;
+    }
+
+    .h2-test-green,
+    .h2-test-green-thanks {
+      @apply mt-[1rem] sm:mt-[4rem] text-[1.6rem] sm:text-[2rem] md:text-[2.4rem] lg:text-[3rem] 2xl:text-[3rem];
+      color: var(--primary-color);
+      font-family: Oswald;
+      font-weight: 400;
+    }
+
+    .h2-test-green {
+      text-align: left;
+    }
+
+    .h2-test-green-thanks {
+      text-align: center;
+    }
+
+    .textarea-test {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .p-test,
+    .p-test::placeholder {
+      @apply text-[1.3rem] sm:text-[1.6rem] lg:text-[2rem];
+      font-family: Oswald;
+      font-weight: 200;
+    }
+
+    .p-test::placeholder {
+      color: var(--Gray, #909090);
+    }
+
+    .p-test {
+      color: black;
+    }
+
+    .shadow-test {
+      -webkit-box-shadow: 0px 0px 16px 1px var(--primary-color);
+      -moz-box-shadow: 0px 0px 16px 1px var(--primary-color);
+      box-shadow: 0px 0px 16px 1px var(--primary-color)
+    }
+
+    .input-transform-gray {
+      @apply bg-transparent border-b border-gray-400 text-[1rem] font-bold pb-2 sm:pb-3 pt-8 sm:pt-10 w-[100%] sm:w-full font-inter outline-none
+    }
+
+    .input-transform::placeholder {
+      color: #1E1F2A;
+    }
+
+    .input-transform-gray::placeholder {
+      @apply text-gray-400 uppercase
+    }
+
+    .oswald-semi {
+      @apply uppercase oswald text-[2rem] lg:text-4xl text-black font-semibold
+    }
+
+    .oswald-semi-white {
+      @apply uppercase oswald text-[2rem] lg:text-4xl text-white font-semibold
+    }
+
+    .ul-rate {
+      @apply list-disc text-white lg:text-[var(--background-color)] oswald font-normal text-[1.2rem] lg:text-[1.4rem] p-6 pl-10 space-y-1
+    }
+
+    .p-last-rate {
+      @apply uppercase oswald text-[1.6rem] lg:text-4xl text-right text-gray-400 font-extralight ml-8 mt-1
+    }
+
+    .h2-footer {
+      @apply text-[1.6rem] sm:text-[2.5rem];
+      color: var(--White, #FFF);
+      font-family: Oswald;
+      font-weight: 600;
+      line-height: 120%;
+    }
+
+    .p-advantages {
+      padding: 2rem 0 0.5rem;
+      color: var(--text-color);
+      text-align: center;
+      font-family: Oswald;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .h3-problem {
+      color: var(--Accent, #2DE184);
+      font-family: Oswald;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .p-problem {
+      color: var(--White, #FFF);
+      font-family: Oswald;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .icon-problem {
+      width: 30px;
+      height: 30px;
+    }
+
+    .price-rate {
+      @apply flex bg-[var(--text-color)] w-[20rem] lg:w-[23rem] h-[auto] mt-10 lg:mt-14 p-3 rounded-[10px]
+    }
+
+    .price-rate-white {
+      @apply flex bg-white w-[20rem] lg:w-[23rem] h-[auto] mt-10 lg:mt-14 p-3 rounded-[10px]
+    }
+
+    .discount-rate {
+      @apply absolute top-[5rem] left-[17rem] lg:top-20 lg:left-[20rem] rounded-[20px] font-inter font-semibold rotate-[25deg] text-2xl text-center w-20 h-[2.5rem] pt-1 bg-[var(--primary-color)]
+    }
+
+    .p-footer {
+      @apply text-[1.3rem] sm:text-[1.8rem];
+      color: var(--Gray, #909090);
+      font-family: Oswald;
+      font-weight: 400;
+      line-height: 140%;
+    }
+
+    .p-text-icon {
+      @apply text-[1.2rem] sm:text-[1.8rem];
+      align-items: center;
+      color: var(--White, #FFF);
+      font-family: Oswald;
+      font-weight: 400;
+      text-decoration-line: underline;
+    }
+
+    .block-rate {
+      @apply rounded-[10px] bg-none border-4 lg:border-none lg:bg-white w-[25rem] lg:w-[32rem] p-[2.4rem] lg:p-[2.5rem] pr-10
+    }
+
+    .block-rate-dark {
+      @apply rounded-[10px] border-[4px] border-[var(--primary-color)] w-[25rem] lg:w-[32rem] p-[2.4rem] lg:p-[2.5rem]
+    }
+
+
+  }
+}
+
+@media (max-width: 1535px) {
+  .h3-problem {
+    width: 150px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .p-problem {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  .slide {
+    width: 100%;
+    flex: 0 0 200px;
+    /* ширина слайда  */
+    transition: transform 1s;
+    /* Анимация перемещения слайдов */
+  }
+
+  .slider {
+    /* Анимация прокрутки влево */
+    display: flex;
+    animation: scroll 60s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+      /* Начальное положение (не сдвигаем) */
+    }
+
+    100% {
+      transform: translateX(-580%);
+      /* Конечное положение (сдвигаем на 100%) */
+    }
+  }
+
+  .h3-problem {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .p-problem {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .icon-problem {
+    width: 20px;
+    height: 20px;
+  }
+
+  .clamp-size-h1 {
+    font-size: clamp(20px, 4.5vw, 70px);
+    font-size: 2.7rem;
+  }
+
+  .clamp-size-h2-garan {
+    font-size: clamp(20px, 4.5vw, 84px);
+    font-style: 3rem;
+  }
+
+  .p-get {
+    font-size: 2.3rem;
+  }
+
+  .p-two {
+    font-size: 3.5rem;
+  }
+
+  .clamp-size-h2 {
+    font-size: clamp(27px, 6.4vw, 120px);
+    font-size: 4.5rem;
+  }
+
+  .clamp-size-h2-business {
+    font-size: clamp(34px, 5.4vw, 120px);
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+      /* Начальное положение (не сдвигаем) */
+    }
+
+    100% {
+      transform: translateX(-200%);
+      /* Конечное положение (сдвигаем на 100%) */
+    }
+  }
+
+  .button-rate,
+  .button-rate-dark {
+    margin: 0 auto 3rem;
+    width: 20rem;
+    height: 4rem;
+    font-weight: 400;
+    font-size: 1.3rem;
+    padding: 1rem 1rem;
+  }
+
+  .p-advantages {
+    font-size: 1.1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .h3-problem {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .p-problem {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+  .icon-problem {
+    width: 15px;
+    height: 15px;
+  }
+
+  .bestseller-rate {
+    width: 13.5rem;
+    height: 2.4rem;
+  }
+}
+
+@media (max-width: 880px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+      /* Начальное положение (не сдвигаем) */
+    }
+
+    100% {
+      transform: translateX(-395%);
+      /* Конечное положение (сдвигаем на 100%) */
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .slider {
+    animation: scroll 90s linear infinite; 
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+      /* Начальное положение (не сдвигаем) */
+    }
+
+    100% {
+      transform: translateX(-1300%);
+      /* Конечное положение (сдвигаем на 100%) */
+    }
+  }
+
+  .clamp-size-h1 {
+    font-size: clamp(20px, 4.9vw, 70px);
+    font-size: 1.5rem;
+  }
+
+  .clamp-size-h2-garan {
+    font-size: clamp(20px, 4.5vw, 84px);
+    font-style: 1.6rem;
+  }
+
+  .clamp-size-h2 {
+    font-size: clamp(27px, 6.4vw, 120px);
+    font-size: 2.5rem;
+  }
+
+  .p-two {
+    font-size: 2.2rem;
+  }
+
+  .p-get {
+    font-size: 1.5rem;
+  }
+
+  .clamp-size-h2-business {
+    font-size: clamp(34px, 5.4vw, 120px);
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,41 @@
+.snake {
+    position: relative;
+    height: auto; /* Высота родительского контейнера */
+    width: 50.8rem; /* Ширина родительского контейнера */
+    overflow: hidden; /* Скрытие выхода шарика за границы */
+}
+
+/* Заменяем .snake-image на img */
+.snake img {
+    width: 100%; /* Ширина изображения */
+    height: 100%; /* Высота изображения */
+    object-fit: cover; /* Растягиваем изображение по размерам контейнера */
+}
+
+.ball {
+    width: 50px; /* Ширина шарика */
+    height: 50px; /* Высота шарика */
+    border-radius: 50%; /* Делаем форму шарика круглой */
+    background-color: blue; /* Цвет шарика */
+    position: absolute; /* Позиционируем абсолютно относительно родителя */
+    transition: top 0.3s ease-in-out, left 0.3s ease-in-out; /* Анимация движения шарика */
+}
+
+
+.rotating-ball {
+    animation: rotateAnimation 1s linear infinite;
+}
+
+circle {
+    transition: transform 12s ease-in-out; /* Примените здесь необходимые вам стили для плавной анимации */
+}
+
+
+@keyframes rotateAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

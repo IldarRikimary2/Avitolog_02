@@ -1,0 +1,13 @@
+RewriteEngine on
+SetEnvIf X-Forwarded-Proto https SERVER_PORT=443
+SetEnvIf X-Forwarded-Proto https HTTPS=on
+RewriteCond %{HTTP:HTTPS} !=on [NC]
+RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
